@@ -6,8 +6,8 @@
 
 int main(){
 
-    int note;
-    int mode = 2;
+    int note = 0;
+    int mode = 0;
     int check;
     char key[3];
     char* scale[12]={"C","Db","D","Eb",
@@ -16,8 +16,30 @@ int main(){
     
     printf("Please enter the key, eg. Eb : ");
     scanf("%s", key);
-    printf("Please enter the mode: ");
-    scanf("%i", mode);
+
+//Check key
+    for(int i = 0; i < 12; i++){
+            if(strcmp(scale[i], key) == 0){
+                printf("OK");
+                break;
+            }
+            else{
+                printf("Invalid key");
+                return 1;
+            }
+        }
+
+    printf("Pleass enter the mode eg, 1 : ");
+    scanf("%i", &mode);
+    
+//Check mode    
+    if(mode < 1 || mode > 7){
+        printf("%i: invalid mode", mode);
+        return 1;
+    }
+    
+    
+
 
     switch (mode)
     {
